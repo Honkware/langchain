@@ -3,6 +3,7 @@ from langchain.python import PythonREPL
 from langchain.requests import RequestsWrapper
 from langchain.utilities.bash import BashProcess
 from langchain.utilities.bing_search import BingSearchAPIWrapper
+from langchain.utilities.coingecko import CoinGeckoAPIWrapper
 from langchain.utilities.google_search import GoogleSearchAPIWrapper
 from langchain.utilities.google_serper import GoogleSerperAPIWrapper
 from langchain.utilities.openweathermap import OpenWeatherMapAPIWrapper
@@ -23,4 +24,5 @@ __all__ = [
     "BingSearchAPIWrapper",
     "WikipediaAPIWrapper",
     "OpenWeatherMapAPIWrapper",
+    "CoinGeckoAPIWrapper",
 ]

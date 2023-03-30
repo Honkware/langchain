@@ -160,3 +160,11 @@ Below is a list of all supported tools and relevant information:
 - Notes: A connection to the OpenWeatherMap API (https://api.openweathermap.org), specifically the `/data/2.5/weather` endpoint.
 - Requires LLM: No
 - Extra Parameters: `openweathermap_api_key` (your API key to access this endpoint)
+
+**coingecko-api**
+
+- Tool Name: CoinGecko
+- Tool Description: A wrapper around CoinGecko API. Useful for fetching information for a specified cryptocurrency or multiple cryptocurrencies. Input should be a comma-separated list of coin IDs (e.g., 'bitcoin,ethereum') followed by an optional list of comma-separated currencies (e.g., 'usd,eur'). If no currencies are provided, it defaults to 'usd'.
+- Notes: A connection to the CoinGecko API (https://api.coingecko.com/api/v3), specifically the /simple/price endpoint.
+- Requires LLM: No
+- Extra Parameters: coingecko_api_key (your API key to access this endpoint, optional)
