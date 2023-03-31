@@ -4,7 +4,13 @@ from typing import Any, List, Optional
 
 from langchain.agents.tools import Tool
 from langchain.callbacks.base import BaseCallbackManager
-from langchain.chains.api import news_docs, open_meteo_docs, tmdb_docs, podcast_docs
+from langchain.chains.api import (
+    news_docs,
+    open_meteo_docs,
+    tmdb_docs,
+    podcast_docs,
+    coingecko_docs,
+)
 from langchain.chains.api.base import APIChain
 from langchain.chains.llm_math.base import LLMMathChain
 from langchain.chains.pal.base import PALChain
@@ -86,11 +92,21 @@ def _get_open_meteo_api(llm: BaseLLM) -> BaseTool:
     )
 
 
+def _get_coingecko_api(llm: BaseLLM) -> BaseTool:
+    chain = APIChain.from_llm_and_api_docs(llm, coingecko_docs.COINGECKO_API_DOCS)
+    return Tool(
+        name="CoinGecko API",
+        description="Useful for when you want to get cryptocurrency information from the CoinGecko API. The input should be a question in natural language that this API can answer.",
+        func=chain.run,
+    )
+
+
 _LLM_TOOLS = {
     "pal-math": _get_pal_math,
     "pal-colored-objects": _get_pal_colored_objects,
     "llm-math": _get_llm_math,
     "open-meteo-api": _get_open_meteo_api,
+    "coingecko-api": _get_coingecko_api,
 }
 
 
